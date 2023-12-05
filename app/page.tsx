@@ -44,7 +44,7 @@ export default function Home() {
         height={760}
       />
       {/* Navbar container */}
-      <header className="absolute inset-x-0 top-0 z-50">
+      <header className="absolute inset-x-0 top-0 z-50 border-b-2">
         <nav
           className="flex items-center justify-between p-6 lg:px-8"
           aria-label="Global"
@@ -125,16 +125,21 @@ export default function Home() {
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
         ></div>
-        <div className="rounded-2xl bg-blue-400 mx-auto max-w-3xl py-32 sm:py-48 lg:py-56">
+        <div className="rounded-2xl bg-blue-200 mx-auto max-w-3xl py-12 sm:py-48 lg:py-56">
           <div className="hidden sm:mb-3 sm:flex sm:justify-center"></div>
           <div className="text-center ">
             <h1
-              className={`${smythe.className} text-5xl font-bold tracking-tight text-yellow-400 sm:text-6xl`}
+              className={`${smythe.className} text-6xl font-bold tracking-tight text-yellow-400 sm:text-6xl`}
             >
-              Nihon Che Essence
+              Nihon Cha Essence
             </h1>
             <p
               className={`${smythe.className} mt-6 text-xl leading-8 text-yellow-400`}
+            >
+              Crafting Tranquility Through Authentic Japanese Tea
+            </p>
+            <p
+              className={`${smythe.className} mt-5 text-xl leading-9 text-yellow-400`}
             >
               Discover the art of tea-making, immerse yourself in mindful
               rituals, and savor the serenity of Nihon Cha Essence where every
@@ -143,10 +148,11 @@ export default function Home() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href="#"
-                className={`${smythe.className} rounded-full bg-gray-800 px-6 py-3 text-xl font-semibold text-yellow-400 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+                className={`${smythe.className} rounded-full bg-transparent bg-gray-800 px-8 py-4 text-4xl font-semibold text-yellow-400 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
               >
                 Shop Tea &rarr;
               </Link>
+            </div>
             </div>
           </div>
         </div>
@@ -155,6 +161,5 @@ export default function Home() {
           aria-hidden="true"
         ></div>
       </div>
-    </div>
   );
 }
