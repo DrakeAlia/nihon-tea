@@ -1,165 +1,198 @@
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { buttonVariants } from "@/components/ui/button";
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { smythe } from "@/components/ui/font";
+import { ArrowRight, Instagram, Linkedin, Twitter } from "lucide-react";
 
-// export default function Home() {
-//   return (
-//     <>
-//       <MaxWidthWrapper>
-//         <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
-//           <section className="rounded-lg bg-blue-300 ">
-//             <h1 className="text-4xl font-bold text-yellow-400 sm:text-6xl">
-//               Nihon Che Essence
-//             </h1>
-//             {/*  */}
-//             <p className="mt-20 text-lg max-w-prose text-muted-forground text-yellow-400">
-//               Crafting Tranquility Through Authentic Japanese Tea
-//             </p>
-//             <p className="mt-8 text-lg max-w-prose text-muted-forground text-yellow-400">
-//               Discover the art of tea-making, immerse yourself in mindful
-//               rituals, and savor the serenity of Nihon Cha Essence – where every
-//               cup is an ode to the soul-soothing essence of Japanese tea.
-//             </p>
-//             <div className="flex flex-col sm:flex-row gap-4 mt-14"></div>
-//             <Link href="/shop" className={buttonVariants()}>
-//               Shop Tea
-//             </Link>
-//           </section>
-//         </div>
-//       </MaxWidthWrapper>
-//     </>
-//   );
-// }
 
-export default function Home() {
+const navigation = [
+  { name: "About Us", href: "#" },
+  { name: "Our Team", href: "#" },
+  { name: "Products", href: "#" },
+  { name: "Recipes", href: "#" },
+];
+
+export default function SplashPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <div className="bg-white">
+    <div className="bg-black">
       <Image
-        className="absolute inset-0 w-full h-full"
-        src="/design.jpeg"
+        className="absolute object-cover w-full h-full"
+        src="/hero-desktop.jpeg"
         alt=""
         width={1000}
         height={760}
       />
-      {/* Navbar container */}
-      <header className="absolute inset-x-0 top-0 z-50 border-b-2">
+      <header className="absolute inset-x-0 top-0 z-50">
+        {/* <Navbar /> */}
         <nav
           className="flex items-center justify-between p-6 lg:px-8"
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              {/* <Image
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-                width={1000}
-                height={760}
-              /> */}
-            </a>
+              <Image
+                src="/icon.png"
+                alt="Nioh Cha Essence"
+                width={50}
+                height={50}
+              />
+            </Link>
           </div>
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-yellow-400"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-yellow-500"
+              onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            <Link
-              href="#"
-              className={`${smythe.className} rounded-full bg-gray-800 px-4 py-2 text-xl font-semibold leading-6 text-yellow-400`}
-            >
-              Product
-            </Link>
-            <Link
-              href="#"
-              className={`${smythe.className} rounded-full bg-gray-800 px-4 py-2 text-xl font-semibold leading-6 text-yellow-400`}
-            >
-              Features
-            </Link>
-            <Link
-              href="#"
-              className={`${smythe.className} rounded-full bg-gray-800 px-4 py-2 text-xl font-semibold leading-6 text-yellow-400`}
-            >
-              Marketplace
-            </Link>
-            <Link
-              href="#"
-              className={`${smythe.className} rounded-full bg-gray-800 px-4 py-2 text-xl font-semibold leading-6 text-yellow-400`}
-            >
-              Company
-            </Link>
+          {/* Navbar */}
+          <div className="hidden lg:flex lg:gap-x-12 items-center">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`${smythe.className} bg-gray-800 bg-opacity-50 px-5 py-2.5 rounded-full ring-1 hover:ring-green-500 text-lg font-semibold leading-6 text-yellow-500`}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <div className="lg:flex lg:gap-x-5 items-center bg-gray-800 bg-opacity-50 px-5 py-2.5 rounded-full">
+              <Instagram
+                className="h-6 w-6 text-yellow-500"
+                aria-hidden="true"
+              />
+              <Twitter className="h-6 w-6 text-yellow-500" aria-hidden="true" />
+              <Linkedin
+                className="h-6 w-6 text-yellow-500"
+                aria-hidden="true"
+              />
+            </div>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link
               href="#"
-              className={`${smythe.className} rounded-full bg-gray-800 px-4 py-2 text-xl font-semibold leading-6 text-yellow-400`}
+              className={`${smythe.className} bg-gray-800 bg-opacity-50 px-5 py-2.5 rounded-full ring-1 hover:ring-green-500 text-lg font-semibold leading-6 text-yellow-500`}
             >
               Log in <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
         </nav>
+        <div className="border-t border-gray-500"></div>
+        <Dialog
+          as="div"
+          className="lg:hidden"
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
+        >
+          <div className="fixed inset-0 z-50" />
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="flex items-center justify-between">
+              <Link href="#" className="-m-1.5 p-1.5">
+                <span className="sr-only">Your Company</span>
+                <Image
+                  src="/icon.png"
+                  alt="Nioh Cha Essence"
+                  width={50}
+                  height={50}
+                />
+              </Link>
+              <button
+                type="button"
+                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
+            {/* mobile navbar */}
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-gray-500/10">
+                <div className="space-y-2 py-6">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+                <div className="py-6">
+                  <Link
+                    href="#"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    Log in
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Dialog.Panel>
+        </Dialog>
       </header>
-      {/* Description container */}
-      <div className="relative isolate px-6 pt-28 lg:px-8">
+      {/* splash page */}
+      <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
         ></div>
-        <div className="rounded-2xl bg-blue-200 mx-auto max-w-3xl py-12 sm:py-48 lg:py-56">
-          <div className="hidden sm:mb-3 sm:flex sm:justify-center"></div>
-          <div className="text-center ">
+        <div className="flex-row mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+          <div className="hidden sm:mb-8 sm:flex sm:justify-center"></div>
+          <div className="bg-blue-900 bg-opacity-30 py-2.5 rounded-xl text-center">
             <h1
-              className={`${smythe.className} text-6xl font-bold tracking-tight text-yellow-400 sm:text-6xl`}
+              className={`${smythe.className} text-4xl font-bold tracking-tight text-yellow-500 sm:text-6xl`}
             >
-              Nihon Cha Essence
+              Nioh Cha Essence
             </h1>
             <p
-              className={`${smythe.className} mt-6 text-xl leading-8 text-yellow-400`}
+              className={`${smythe.className} mt-6 text-lg leading-7 text-yellow-500`}
             >
               Crafting Tranquility Through Authentic Japanese Tea
             </p>
             <p
-              className={`${smythe.className} mt-5 text-xl leading-9 text-yellow-400`}
+              className={`${smythe.className} mt-6 text-lg leading-7 text-yellow-500`}
             >
               Discover the art of tea-making, immerse yourself in mindful
               rituals, and savor the serenity of Nihon Cha Essence where every
               cup is an ode to the soul-soothing essence of Japanese tea.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
+              {/* <Link
+                href="#"
+                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Get started
+              </Link> */}
               <Link
                 href="#"
-                className={`${smythe.className} rounded-full bg-transparent bg-gray-800 px-8 py-4 text-4xl font-semibold text-yellow-400 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+                className={`${smythe.className} bg-gray-800 bg-opacity-50 px-20 py-2.5 rounded-full ring-1 hover:ring-green-500 text-2xl font-semibold leading-6 text-yellow-500`}
               >
-                Shop Tea &rarr;
+                Shop <span aria-hidden="true">→</span>
               </Link>
-            </div>
             </div>
           </div>
         </div>
-        <div
+        {/* <div
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
           aria-hidden="true"
-        ></div>
+        ></div> */}
       </div>
+      {/* <div className="relative isolate px-6 pt-14 lg:px-8">
+        <div className="bg-blue-500 bg-opacity-40 py-2.5 rounded-xl text-center">
+          
+        </div>
+      </div> */}
+    </div>
   );
 }
