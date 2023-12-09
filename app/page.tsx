@@ -18,7 +18,7 @@ const navigation = [
 export default function SplashPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <div className="bg-black">
+    <div>
       <Image
         className="absolute object-cover w-full h-full"
         src="/hero-desktop.png"
