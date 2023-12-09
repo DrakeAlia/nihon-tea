@@ -8,7 +8,6 @@ import Link from "next/link";
 import { smythe } from "@/components/ui/font";
 import { ArrowRight, Instagram, Linkedin, Twitter } from "lucide-react";
 
-
 const navigation = [
   { name: "About Us", href: "#" },
   { name: "Our Team", href: "#" },
@@ -22,13 +21,26 @@ export default function SplashPage() {
     <div className="bg-black">
       <Image
         className="absolute object-cover w-full h-full"
+        src="/hero-desktop.png"
+        alt=""
+        width={1000}
+        height={760}
+      />
+      {/* <Image
+        className="absolute object-cover w-full h-full hidden md:block"
         src="/hero-desktop.jpeg"
         alt=""
         width={1000}
         height={760}
       />
+      <Image
+        className="absolute object-cover w-full h-full block md:hidden"
+        src="/mobile-desktop.png"
+        alt=""
+        width={560}
+        height={620}
+      /> */}
       <header className="absolute inset-x-0 top-0 z-50">
-        {/* <Navbar /> */}
         <nav
           className="flex items-center justify-between p-6 lg:px-8"
           aria-label="Global"
@@ -44,6 +56,7 @@ export default function SplashPage() {
               />
             </Link>
           </div>
+          {/* Menu Icon button */}
           <div className="flex lg:hidden">
             <button
               type="button"
@@ -87,6 +100,7 @@ export default function SplashPage() {
           </div>
         </nav>
         <div className="border-t border-gray-500"></div>
+        {/* Dropdown menu */}
         <Dialog
           as="div"
           className="lg:hidden"
@@ -141,7 +155,7 @@ export default function SplashPage() {
           </Dialog.Panel>
         </Dialog>
       </header>
-      {/* splash page */}
+      {/* Splash Page */}
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -168,12 +182,6 @@ export default function SplashPage() {
               cup is an ode to the soul-soothing essence of Japanese tea.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              {/* <Link
-                href="#"
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Get started
-              </Link> */}
               <Link
                 href="#"
                 className={`${smythe.className} bg-gray-800 bg-opacity-50 px-20 py-2.5 rounded-full ring-1 hover:ring-green-500 text-2xl font-semibold leading-6 text-yellow-500`}
@@ -183,10 +191,6 @@ export default function SplashPage() {
             </div>
           </div>
         </div>
-        {/* <div
-          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-          aria-hidden="true"
-        ></div> */}
       </div>
       {/* <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="bg-blue-500 bg-opacity-40 py-2.5 rounded-xl text-center">
