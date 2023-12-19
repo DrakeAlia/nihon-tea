@@ -49,6 +49,7 @@ export default function SplashPage() {
             <Link href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <Image
+                className="h-9 w-9 rounded-full"
                 src="/icon.png"
                 alt="Nioh Cha Essence"
                 width={50}
